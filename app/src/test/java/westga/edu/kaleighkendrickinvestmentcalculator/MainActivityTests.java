@@ -36,4 +36,62 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
         assertEquals(" $1.00", actualText);
     }
 
+    public void testValuePayment() {
+        MainActivity activity = getActivity();
+
+        //Tap button
+        // ----------------------
+
+        Button button =
+                (Button) activity.findViewById(R.id.button2);
+
+        TouchUtils.clickView(this, button);
+
+        // Verify calculation
+        // ----------------------
+
+        TextView calculation = (TextView) activity.findViewById(R.id.paymentImput);
+        String actualText = calculation.getText().toString();
+        assertEquals("1", actualText);
+    }
+
+    public void testValueRate() {
+        MainActivity activity = getActivity();
+
+        //Tap button
+        // ----------------------
+
+        Button button =
+                (Button) activity.findViewById(R.id.button2);
+
+        TouchUtils.clickView(this, button);
+
+        // Verify calculation
+        // ----------------------
+
+        TextView calculation = (TextView) activity.findViewById(R.id.rateImput);
+        String actualText = calculation.getText().toString();
+        assertEquals("1", actualText);
+    }
+
+    public void testValuePeriod() {
+        MainActivity activity = getActivity();
+
+        //Tap button
+        // ----------------------
+
+        Button button =
+                (Button) activity.findViewById(R.id.button2);
+
+        TouchUtils.clickView(this, button);
+
+        // Verify calculation
+        // ----------------------
+
+        TextView calculation = (TextView) activity.findViewById(R.id.periodImput);
+        String actualText = calculation.getText().toString();
+        assertEquals("1", actualText);
+    }
+
+
 }
