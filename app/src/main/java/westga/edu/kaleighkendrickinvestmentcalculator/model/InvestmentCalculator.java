@@ -1,10 +1,8 @@
 package westga.edu.kaleighkendrickinvestmentcalculator.model;
 
 import java.lang.Math;
+import java.text.DecimalFormat;
 
-/**
- * Created by Kaleigh on 3/6/2016.
- */
 public class InvestmentCalculator {
     private double periodicPayment;
     private double paymentAmount;
@@ -12,7 +10,7 @@ public class InvestmentCalculator {
     private double period;
 
     /**
-     *
+     * Constructor.
      */
     public InvestmentCalculator(){
         this.paymentAmount=0;
@@ -31,6 +29,8 @@ public class InvestmentCalculator {
         this.periodicPayment = this.periodicPayment-1;
         this.periodicPayment = this.periodicPayment/this.ratePeriod;
         this.periodicPayment = this.periodicPayment * this.paymentAmount;
+        DecimalFormat df = new DecimalFormat("#.00");
+        this.periodicPayment= Double.parseDouble(df.format(this.periodicPayment));
     }
 
     /**
@@ -46,7 +46,7 @@ public class InvestmentCalculator {
      * @param ratePeriod The rate period.
      */
     public void setRatePeriod(double ratePeriod){
-        this.ratePeriod=ratePeriod;
+        this.ratePeriod=ratePeriod*.01;
     }
 
     /**
@@ -66,8 +66,8 @@ public class InvestmentCalculator {
     }
 
     /**
-     *
-     * @return
+     * Gets the rate for the period.
+     * @return The rate for the period.
      */
     public double getRatePeriod(){
         return this.ratePeriod;
@@ -90,8 +90,8 @@ public class InvestmentCalculator {
     }
 
     /**
-     *
-     * @return
+     * Creates a string representation of the object.
+     * @return A string representation of the object.
      */
     public String toString(){
         return "The Payment Amount is "+this.paymentAmount+", the Rate Period is "
